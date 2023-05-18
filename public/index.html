@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="/css/uikit.css"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <title>Juego</title>
+    <style>
+        * { padding: 0; margin: 0; }
+        canvas {
+            background: #eee;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/uikit.js"></script>
+    <script src="/js/uikit-icons.js"></script>
+</head>
+<body>
+
+<script>
+    // Importante
+    // Declaro el socket aqui como Global, para que se pueda usar en todos los ficheros js
+    var socket = io();
+    var nombreJugadorSocket = "";
+    var enCanvas = false;
+    var pregunta = null; //preguntaActual
+</script>
+
+<!-- Panel de login -->
+<div id="panelLogin">
+    <section class="uk-section">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input id="nombre" class="uk-input" name="usuario"
+                               placeholder="Nombre..." type="text">
+                    </div>
+                </div>
+                <div class="uk-margin ">
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                        <input class="uk-input" id="password" type="password" name="password"
+                               placeholder="Password...">
+                    </div>
+                </div>
+                <input type="submit" id="botonLogin" value="Iniciar sesión" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">
+        </div>
+    </section>
+</div>
+
+<!-- Panel de puntuaciones -->
+<div id="panelPuntuaciones" style="display:none;">
+
+    <section class="uk-section">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
+            <h2>Puntuaciones</h2>
+            <a class="uk-button uk-button-primary" id="botonVolverAlCanvas">Volver</a>
+            <div class="uk-container">
+                <div class="uk-overflow-auto">
+                    <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+                        <thead>
+                        <tr>
+                            <th class="uk-table-expand">Nombre</th>
+                            <th class="uk-width-small">Puntos</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablaPuntuaciones">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Panel de Bonificaciones -->
+<div id="panelBonificacion" style="display:none;">
+
+    <section class="uk-section">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
+            <div id="panelPrepregunta">
+                <h2 id="prepregunta">Pre pregunta</h2>
+                <input id="botonVerPregunta" value="Siguiente" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">
+            </div>
+            <div id="panelPregunta">
+                <h2 id="pregunta">pregunta</h2>
+                <input id="respuesta" class="uk-input" placeholder="Escribe la respuesta..." type="text">
+                <input  id="botonContestar" value="Contestar" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- Panel de canvas de juego -->
+<canvas id="canvas" width="480" height="320" style="display:none;"></canvas>
+
+<!-- Todos los js del Juego (Canvas)  -->
+<script src="src/modelos/Actor.js"></script>
+<script src="src/modelos/Marinero.js"></script>
+<script src="src/modelos/Tiburon.js"></script>
+<script src="src/modelos/Barco.js"></script>
+<script src="src/modelos/Fondo.js"></script>
+<script src="src/modelos/Enemigo.js"></script>
+<script src="src/modelos/DisparoJugador.js"></script>
+<script src="src/modelos/Texto.js"></script>
+<script src="src/modelos/Bloque.js"></script>
+<script src="src/modelos/Boton.js"></script>
+<script src="src/modelos/BarraTiempo.js"></script>
+
+<script src="src/layers/Layer.js"></script>
+<script src="src/layers/GameLayer.js"></script>
+<script src="src/layers/MenuLayer.js"></script>
+
+<script src="src/graficos/Animacion.js"></script>
+
+<script src="src/Globales.js"></script>
+<script src="src/EventosPulsacion.js"></script>
+<script src="src/Eventosteclado.js"></script>
+<script src="src/EventosGamePad.js"></script>
+<script src="src/Res.js"></script>
+<script src="Game.js"></script>
+
+
+<!-- Script para el Login -->
+<script>
+    $( "#botonLogin" ).click(function() {
+        var mensaje = {
+            nombre : $('#nombre').val(),
+            password : $('#password').val()
+        }
+        socket.emit('login', mensaje);
+    });
+
+    socket.on('loginResponse', function(msg){
+        nombreJugadorSocket = msg.nombre;
+        $( "#panelLogin" ).hide();
+        $( "#canvas" ).show();
+        enCanvas = true;
+        // Solicito toda la información del estado de juego
+        // La respuesta ya se procesa dentro de los js del juego.
+        socket.emit('estadoDeJuego', "");
+    });
+
+    socket.on('puntuaciones', function(msg){
+        console.log("puntuaciones")
+        $( "#tablaPuntuaciones" ).empty();
+        for (var i=0; i < msg.length; i++){
+            $( "#tablaPuntuaciones" ).append(
+                "<tr>"+
+                "<td >"+msg[i].nombre+"</td>"+
+                "<td >"+msg[i].puntos+"</td>"+
+                "</tr>"
+            );
+        }
+    });
+
+
+    $( "#botonVerPregunta" ).click(function() {
+        $( "#panelPregunta" ).show();
+        $( "#panelPrepregunta" ).hide();
+    });
+
+    $( "#botonContestar" ).click(function() {
+        var mensaje = {
+            respuesta : $('#respuesta').val(),
+            indiceEnArray: pregunta.indiceEnArray,
+        }
+        socket.emit('respuesta', mensaje);
+
+        // Volver al canvas
+        $( "#panelBonificacion" ).hide();
+        $( "#canvas" ).show();
+        enCanvas = true;
+    });
+
+
+
+    socket.on('pregunta', function(msg){
+        console.log("pregunta")
+        pregunta = msg;
+
+        $('#respuesta').val(""); // Vaciar el input de la respuesta
+
+        // ¿Hay Prepregunta que mostrar o solo pregunta?
+        if (pregunta.prepregunta != "") {
+            $("#panelPrepregunta").show();
+            $("#panelPregunta").hide();
+        } else {
+            $("#panelPrepregunta").hide();
+            $("#panelPregunta").show();
+        }
+
+        $( "#prepregunta" ).empty();
+        $( "#prepregunta" ).append(pregunta.prepregunta);
+
+        $( "#pregunta" ).empty();
+        $( "#pregunta" ).append(pregunta.pregunta);
+    });
+
+    function mostrarPanelBonificacion (){
+        $( "#panelBonificacion" ).show();
+        $( "#canvas" ).hide();
+        enCanvas = false;
+        socket.emit('pregunta', "");
+    }
+
+    function mostrarPanelPuntuaciones (){
+        $( "#panelPuntuaciones" ).show();
+        $( "#canvas" ).hide();
+        enCanvas = false;
+        socket.emit('puntuaciones', "");
+    }
+
+    $( "#botonVolverAlCanvas" ).click(function() {
+        $( "#panelBonificacion" ).hide();
+        $( "#panelPuntuaciones" ).hide();
+        $( "#canvas" ).show();
+        enCanvas = true;
+    });
+
+</script>
+
+
+
+
+</body>
+</html>

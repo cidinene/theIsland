@@ -1,0 +1,52 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Ficheros de preguntas usuarios y resultados (Todo está en UTF8)
+alumnos.csv - meter a los alumnos
+preguntas.csv - definir las preguntas.
+respuestas.csv - guarda los datos de lo que responden los alumnos, las columnas son:
+   A : id de pregunta, puedes poner varias 1 por ejemplo el programa coge una aleatoriamente. luego salta a la 2, etc.
+   B : Prepregunta, texto a mostrar antes de la pregunta, es opcional 
+   C : Pregunta
+   D : Respuesta, si quermeos admitir varias respuestas hay que separarlas por , 
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*Arrancar la aplicación
+npm install (si no tenemos los node_modules instalados)
+node appServerSocket.js
+http://localhost:3039/
+http://38.242.239.205:3039/
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Controlar el juego por parte del profesor.
+var randomToken = "grupo1-3UzezLxUSG";
+Básicamente se controla entrando en estos 2 enlaces. Cuidado solo con entrar ya se activan
+Cuando quieras ver los puntos
+Grupo1 ->   /grupo1-3UzezLxUSG/puntos   (si no hay nadie jugando sale vacío) 
+ 
+Cuando quieras borrar la partida, esto lo que hace es "reiniciar" el tablero, por si en medio de clase quieres reiniciarla o que cada día se juega una partida nueva, o varias el mismo día, eso ya como veas.
+Grupo1 ->   /grupo1-3UzezLxUSG/reiniciar    
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Cambiar cosas de la configuracion del juego *tiempo entre turnos, bonifiacion por pregunta y dias que el juego esta activo
+appServerSocket.js, se puede cambiar
+var tiempoEstandarMovimiento = 3000;
+var tiempoBonificacionPregunta = 1500;
+var horas = [
+    { d: "lunes",       ha:0, ma: 0, hc:23, mc:59},
+    { d: "martes",      ha:0, ma: 0, hc:23, mc:59},
+    { d: "miercoles",   ha:0, ma: 0, hc:23, mc:59},
+    { d: "jueves",      ha:0, ma: 0, hc:23, mc:59},
+    { d: "viernes",     ha:0, ma: 0, hc:23, mc:59},
+    { d: "sabado",      ha:0, ma: 0, hc:23, mc:59},
+    { d: "domingo",     ha:0, ma: 0, hc:23, mc:59}
+]
+
+Cambiar tambien en public
+\Base15marzo\public\Game.js
+var tiempoEstandarMovimiento = 3000;
+var tiempoBonificacionPregunta = 1500;

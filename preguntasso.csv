@@ -1,0 +1,87 @@
+1;;Cuál es el número que identifica a cada usuario dentro del sistema?;UID;PID;GID;TP
+1;;Un proceso además tiene un ____________, que lo diferencia de otra instancia del mismo programa en ejecución, como el usuario que lo ha lanzado, que es el dueño de proceso, los permisos del proceso, si ha sido llamado por otro proceso, etc.;contexto;comando;entorno;estado
+2;;¿En Linux en qué fichero podemos ver todos los usuarios que existen?;/etc/passwd;/etc/login.defs;/etc/group;/edt/addusers.conf
+2;;En Linux, los usuarios del sistema...;Deben pertenecer a un grupo primario y pueden pertenecer o no a uno o varios grupos secundarios;Pueden no pertenecer a ningún grupo;Solo pueden pertenecer a un grupo secundario;Pueden no tener grupo primario
+3;;En Linux, los archivos...;Deben pertenecer a un usuario;Pueden pertenecer a varios usuarios;Pueden no pertenecer a ningún usuario;Tienen que pertenecer a varios usuarios
+3;;Si en el fichero /etc/shadow el campo de contraseñas empieza por los caracteres $6$, ¿con qué algoritmo de encriptación se ha realizado?;SHA-512;DES;SHA-256;MD5
+4;;¿Em Linux cuál es la opción por defecto en chmod para asignar permisos, si no se especifica nada?;a.;o.;u.;g.
+4;;¿En Linux con qué comando se pueden ver todos los procesos que se están ejecutando en el sistema?;ps;fg;bg;jobs
+5;;En Linux el editor de texto en modo gráfico por defecto es...;gedit;word;vim;nano
+5;;¿En Linux qué comando no visualiza el contenido (todo o parcialmente) de ficheros?;ls;tail;less;ninguno
+6;;¿Cuál de los siguientes comandos cambia el orden del contenido de un fichero mostrado por pantalla?;sort;more;cat;less
+6;;¿Cuál es el comando que escribe la ruta del directorio donde nos encontramos?;pwd;cd;df;ninguno
+6;;¿Cuál de los siguientes comandos crea un archivo nuevo ordenado?;sort > arch1;sort-c arch1;sort -m arch1 arch1;order arch1
+7;;¿Qué herramienta permite administrar todos los dispositivos físicos del sistema?;Administrador de dispositivos;Administrador de tareas;Programador de tareas;Configurador de hardware
+7;;Antes de realizar cualquier cambio en el registro es aconsejable...;Realizar una copia de seguridad del registro;Reinstalar la aplicación;Reiniciar el equipo;Cambiar la contraseña
+8;;¿Qué herramienta permite administrar las aplicaciones, los procesos y ver el rendimiento del sistema?;Administrador de tareas;Administrador de dispositivos;Programador de tareas;Fornite
+8;;Este comando muestra, modifica, hace copias de seguridad o restaura listas de control de acceso (ACL) para archivos y directorios;ICACLS;SHUTDOWN;TASKLIST;SECUREACL
+9;;¿Cuál es el archivo de la paginación de memoria de Windows?;pagefile.sys;boot.ini;msconfig.exe;win.init
+9;;¿Con qué comando podemos ver las variables de entorno del sistema Windows?;set;var;sc;tasklist
+9;;¿En que lugar almacena Windows los datos de configuración(hardware y software instalado, usuarios, tipos de archivos, etc);Registro;Memoria RAM;Panel de control;Placa base
+10;;En Windows Las _______ almacenan valores que servirán para que ciertos programas las utilicen o bien para configurar ciertos parámetros del entorno de trabajo;Variables de entorno;Copias de seguridad;Cuentas de usuario;Directrices
+10;;Si somos un usuario administrador en Windows podremos añadir otro usuario haciendo clic sobre...;Administrar otra cuenta;Cambiar configuración;Actualizar controlador;Inicio de usuarios
+11;;Las _________ son necesarias para guardar información y recuperarlos en caso de perdida;Copias de seguridad;Herramientas de configuración;Cuentas de usuario;Cuentas corrientes
+12;;El usuario __________ de Windows tiene privilegios para instalar y desinstalar programas, cambiar la configuración del sistema y añadir otros usuarios;Administrador del equipo;De cuenta profesional;De cuenta limitada;De cuenta invitado
+13;;¿Que comandod de Windows permite apagar el equipo y cerrar la sesión de usuario?;SHUTDOWN;ICACLS;TASKKILL;Ninguno solo se puede apagar con el botón
+14;;Este usuario de Windows solo podrá cambiar configuraciones y archivos relativos al propio usuario, no a todo el sistema;Usuario de cuenta limitada;Usuario administrador de equipo;Usuario de cuenta de invitado;Ninguno de los anteriores
+14;;¿En Windows si queremos cambiar de usuario sin cerrar la sesión debemos pulsar en...;Cambiar de usuario;Cerrar sesión;Apagar equipo;Pausar sesión
+15;;Qué herramienta de Windows permite planificar la ejecución de una tarea en un instante determinado o periódicamente;Programador de tareas;Administrador de tareas;Administrador de dispositivos;Planificador de tareas
+15;;¿Qué herramienta de Windows permite optimiza archivos y realiza una desfragmentación para que el equipo funcione con mayor velocidad y eficiencia?;Desfragmentar y optimizar unidades;Liberador de espacio en disco;Cambiar configuración;Formatear disco
+16;;¿Qué carácter identifica al directorio raíz en Windows?;\;/;:;...
+16;;En Windows si queremos abrir un fichero de texto con el programa que no tenga predeterminado, sino otro, ¿qué opción del menú contextual se debe utilizar?;Abrir con;Enviar a;Abrir;Configurar
+17;;¿Con qué letra se identifica el atributo de solo lectura de un fichero en Windows?;R;S;L;M
+17;;En Windows que herramienta busca y permite que borremos archivos innecesarios en el sistema,como archivos temporales de internet,etc;Liberador de espacio en disco;Desfragmentar y optimizar unidades;Optimizar;Papelera de reciclaje
+18;;¿Qué carácter se utiliza para pasar parámetros a los ficheros por lotes en Windows?;%;$;&;r
+18;;¿Qué extensión tienen los ficheros por lotes o ficheros de comandos en Windows?;bat;exe;com;jpg
+19;;Si acabamos de borrar un fichero y lo queremos recuperar, ¿dónde debemos mirar?;En la papelera de reciclaje;En el escritorio;En los documentos;En la carpeta de ficheros borrados
+19;;¿Qué extensión tiene un archivo ejecutable en Windows?;exe;bmp;txt;win
+20;;¿Qué comando muestra o modifica las asociaciones de extensiones de archivo en Windows?;assoc;verify;more;change
+21;;En Linux que comando lista todos los archivos del directorio bin;ls /bin;ls /tmp;ls /bin/all;listar bin
+21;;En Linux que comando lista todos los archivos del directorio tmp;ls /tmp;tmp ls;ls /tmp/all;list tmp
+21;;En Linux que comando lista todos los archivos del directorio etc que empiecen por t en orden inverso.;s –r /etc/t*;r –s /etc/t*;r –s /etc/ t;s –r -t /etc/
+22;;En Linux que comando listar todos los archivos del directorio dev que empiecen por tty y tengan 5 caracteres.;ls /dev/tty??;ls /dev/tty*;ls /dev/[tty5+];ls /dev/[tty[**]
+22;;En Linux que comando lista todos los archivos del directorio dev que empiecen por tty y acaben en 1,2,3 ó 4;ls /dev/tty*[1-4];ls /dev/tty* -1 -4;ls /dev/tty [1-4];ls*tty[1-4] /dev/
+23;;En Linux que comando lista todos los archivos del directorio dev que empiecen por t y acaben en C1;ls /dev/t*c1;ls /dev/*c1;ls /dev/t++c1;ls /dev/t* -cl
+24;;En Linux que comando lista todos los archivos, incluidos los ocultos, del directorio raíz;ls –a /;ls –r /;ls –o /;salir ocultos
+24;;En Linux que comando lista todos los archivos del directorio etc que no empiecen por t;ls –d /etc/[^t]*;ls /etc/[*t];ls –u /etc/[t];ls –d -u /etc/[^t*]
+25;;En Linux que comando lista todos los archivos del directorio usr y sus subdirectorios;ls –R /usr;ls –sub /usr;ls –s -all /usr;ls /usr -al
+26;;En Linux que comando permite mostrar el día y la hora actual;date;ls -time;time;Tiempo ahora
+26;;En Linux que comando permite posicionarnos en el directorio $HOME de forma directa;cd /home;home;go -home;ls -m /home
+26;;En Linux que comando borrar todos los archivos y directorios visibles de vuestro directorio PRUEBA.;rm -rf PRUEBA/*; rm -fr PRUEBA; rm PRUEBA/*;rm -rf */PRUEBA/
+26;;En Linux que comando crea un directorio dir1 dentrp del directorio PRUEBA.;mkdir PRUEBA/dir1;mk PRUEBA/dir1;crea PRUEBA/dir1; add dir1 -i PRUEBA/
+27;;En Linux que comando muestra por pantalla los archivos ordinarios del directorio HOME y sus subdirectorios.;ls -R $HOME;ls -td $HOME;ls -td !HOME!;ls HOME/*
+27;;En Linux que comando oculta el archivo mensaje del directorio dir3.;mv dir3/mensaje dir3/.mensaje;priv dir3/.mensaje;hid dir3/mensaje;dir3/mensaje Desaparece!
+27;;En Linux que comando borrar los archivos y directorios de dir1, incluido el propio directorio;rm -rf dir1;rm -r -f dir1;del -a dir1;del -a dir1/*
+28;;En Linux que comando borra los archivos de dir2 que no acaben en b y tengan una q como cuarta letra;rm -r dir2/???q[^b];rm -r PRUEBA/dir2/*q*[^b];rm -r dir2/*q*[^b];rm dir2/??q?[^b]
+29;;En Linux que comando borrar el archivo fich1 y copiar enlace en dir3.;rm fich1 cp dir1/enlace dir3/;cp rm dir1/enlace dir3/;rm fich3 cp dir3/ dir1/enlace;del fich1 cp dir1/enlace dir3/
+29;;En Linux que comando de notación simbólica eliminar todos los permisos de escritura (propietario, grupo, otros) del directorio dir2;chmod 555 dir2;rm -r dir2;chmod 432 dir2;chmod -r -w dir2
+30;;En Linux que comando de notación octal, eliminar el permiso de lectura del directorio dir2, al resto de los usuarios;chmod 551 dir2;chmod 541 dir2;chmod 432 dir2;chmod -r -w dir2
+30;;En Linux que comando permite conocer los permisos asignados en su momento a este directorio;ls -lR;ls -R;ls -Chmod;Chmod -ls
+31;;En Linux que comando permite reiniciar el ordenador;reboot;poweroff -r;reset;restart
+31;;En Linux que comando permite quitarle todos los permisos de paso al directorio dir2 y otorgarle todos los demás;chmod = dir2 chmod o=rwx dir2;chmod o=* dir2 o=rwx dir2;chmod dir2 chmod -rwx dir2;chmod dir2 chmod rwx dir2
+31;;En Linux que comando permite ver los permisos que tienen los archivos que empiecen por tt del directorio /dev;ls -l /dev/tt*;ls -p /dev/[tt];ls -lp /dev/+tt+;ls -l /dev/*tt
+32;;En Linux que comando permite visualizar la lista de todos los ficheros que pertenezcan a root;find / -user root -type f;ls / -user root -type f;ls find / -user root -type f;ls / -user root -type find f
+32;;En Linux que comando permite crea un archivo llamado archivo de tamaño 0;touch archivo;file -c -0 archivo;create -s 0 archivo;push -e archivo
+33;;En Linux que comando permite sacar por pantalla únicamente el tiempo que tarda en ejecutarse el comando who;time 'sleep 3' time who -p %e;time who -p;who -time -sleep;time(who) -s
+34;;En Linux que comando permite sacar por pantalla un listado completo de los procesos que está realizando el usuario root;ps -U root -u root u;ps root;ps -U -a root;ps -U root -f root -r root
+35;;En Linux que comando permite sacar por pantalla el listado de todos los usuarios conectados ordenados por número de proceso asignado;ps axu;ps -a -u;ps -a -u -o;ls ps -auo
+35;;En Linux que comando permite mostrar cuantos usuarios hay conectados;who -q;who -u;who ls -a;who -u -r
+35;;En Linux que comando permite calcular la firma md5 del archivo good;md5sum good;md5 [good];md5hasj good;md5sig -f good
+36;;En Linux que comando permite monitorear la ocupación de las particiones en los discos;df -lh;pf -l;ls -d;lf ls -l
+37;;En el sistema de permisos de linux a que equivale el 4 en formato octal;r--=100;-w-=010;--x=001;rwx=111
+37;;En el sistema de permisos de linux a que equivale el 755;u=rwx,g=rx,o=rx;u=rwx,g=rwx,o=rwx;u=rx,g=rwx,o=rwx;u=rx,g=rx,o=rx
+38;;En Windows que comando permite mostrar todas las cuentas de usuario;net user;get users;usernet *; net user *
+38;;En Windows que comando permite eliminar a un usuario usuarioA;net user usuarioA /delete;delete user usuarioA;net -delete user usuarioA;net usuarioA -delete
+39;;En Windows desde que parte de la configuración se puede cambiar el nombre del equipo;Propiedades del sistema;Protección del sistema;Administrador de dispositivos;Ventana de control
+39;;En Windows que comando nos da el nombre del equipo;hostname;desktopname;mipc -name;comand -¿Como te llamas ordenador?
+40;;En Windows con que comando se corresponde el administrador de tareas;taskmgr;cd;administrator;tasks
+40;;En Windows que comando nos permitiria detener una tarea conociendo que tiene el PID 3012;taskkill /PID 3012;delete -3012;task -stop -p 3012;stopTask 3012
+40;;En Windows los procesos que se pueden ejecutar en segundo plano se llaman...;servicios;visores;monitores;registros
+40;;En Windows que herramienta nos permite programar tareas;Programador de tareas;Monitor de tareas;Visor de tareas;Windows Defender
+41;;En Windows dónde podemos encontrar el programador de tareas;Herramientas administrativas;Barra de tareas;Programas y características;Opciones de Internet
+41;;En Windows dónde podemos encontrar las variables de entorno;Herramientas administrativas;Configuración avanzada del sistema;En C;En Protección del sistema
+42;;En Windows que comando debemos ejecutar para abrir el registro;regedit;register;start register;cd ///register
+42;;En Windows en que lugar se recoge toda la información sobre el sistema, programas instalados, hardware, usuarios, etc.;registro;winlog;ram;msconfig
+42;;En Windows que directorio del registro tiene los datos sobre la configuración del usuario actual.;HKEY_CURRENT_USER;HKEY_USER;HKEY_CURRENT_CONFIG;HKEY_LOCAL_USER
+42;;En Windows que directorio del registro tiene los datos sobre el equipo y el sistema operativo.;HKEY_LOCAL_MACHINE;HKEY_COMPUTER;HKEY_CURRENT_CONFIG;HKEY_LOCAL_COMPUTER
+42;;En Windows que directorio del registro tiene los datos sobre el hardware instalado y su configuración.;HKEY_LOCAL_CONFIG;HKEY_HARDWARE;HKEY_CURRENT_HADWARE;HKEY_LOCAL_MACHINE

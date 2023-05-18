@@ -1,0 +1,16 @@
+1;Respecto de IPv4, IPv6 presenta una capacidad de direccionamiento extendida;VERDADERO / FALSO;VERDADERO
+2;Entre 2004 y 2014 las tecnologías de RFID vivieron una burbuja;VERDADERO / FALSO;VERDADERO
+3;Arduino buscaba ocultar los detalles hardware a los estudiantes de microprocesadores;VERDADERO / FALSO;VERDADERO
+4;A partir de 2010 el término IoT se asimila con la B2B web de Joy;VERDADERO / FALSO;FALSO
+5;Completa la frase;Los códigos de barras y los códigos QR fueron investigados como alternativa al ______ en la IoT durante algún tiempo;RFID
+6;Completa la frase;__________ es un estándar comercial basado en la norma IEEE 802.15.4;ZigBee
+7;En una red WiFi, el sistema de distribución inalámbrico no forma parte del estándar IEEE 802.11;VERDADERO / FALSO;FALSO
+8;La IoT nació en un grupo de investigación de Internet;VERDADERO / FALSO;FALSO
+9;Completa la frase;Los ___________  deben estar implementados sobre una sola placa impresa que no admita expansiones;SBC
+10;;Los tres componentes básicos de los sistemas RFID son;Etiqueta Middleware Lector, Etiqueta Lector Middleware, Lector Middleware Etiqueta, Lector Etiqueta Middleware, Middleware Etiqueta Lector,Middleware Lector Etiqueta
+11;Las comunicaciones inalámbricas encajan perfectamente con el paradigma de la IoT;VERDADERO / FALSO;VERDADERO
+12;;El número total de topologías de red definidas en la tecnología WiFi es de;cuatro, 4
+13;;El protocolo que define una red propietaria que exige un hardware específico para poderse conectar es;Sigfox
+14;;¿Cómo se llamo la primera agrupación dedicada a la investigación con IoT?;Auto-ID Center, AutoID Center, Auto-ID, AutoID
+15;¿Cúales NO es uno de los tres módulos básicos de un microcontrolador?;MEMORIA, PERIFÉRICOS DE ENTRADA/SALIDA, MONITOR, UNIDAD CENTRAL DE PROCESAMIENTO;MONITOR
+16;Completa la frase;Un microcontrolador se programa escribiendo en su _____ en código máquina;EPROM
