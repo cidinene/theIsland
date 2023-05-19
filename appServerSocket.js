@@ -1,13 +1,30 @@
-const express = require('express');
+import { serverGameElements, timeUpdate } from "./server/serverGameIA.js";
+import express from 'express';
+import fs from 'fs';
+import  parse from 'csv-parse';
+import  stringSimilarity from 'string-similarity';
+import { Server } from "socket.io";
+
+
 const appServerSocket = express();
 
-var stringSimilarity = require('string-similarity');
 
 // Datos almacenados
 //var tiempoEstandarMovimiento = 300000;
 var tiempoEstandarMovimiento = 30000;
 var tiempoBonificacionPregunta = 15000;
 var portApp = 3039;
+
+
+var alumnos=[];
+var preguntas=[];
+var ultimaPosicionPreguntas = 0; // la posición de la última pregunta
+var alumnosLogeados = []; // Guarda el socket.id y el nombre
+var marineros=[];
+var tiburones=[];
+var barcos=[];
+
+
 
 var horas = [
     { d: "lunes",       ha:0, ma: 0, hc:23, mc:59},
@@ -19,6 +36,10 @@ var horas = [
     { d: "domingo",     ha:0, ma: 0, hc:23, mc:59}
 ]
 
+
+ 
+ //setInterval(() => timeUpdate(serverGameElements.init.bind(alumnos, preguntas,ultimaPosicionPreguntas,alumnosLogeados,marineros,tiburones,barcos)),1000);
+ setInterval(() => timeUpdate(serverGameElements),1000);
 
 /**
 var horas = [
@@ -58,20 +79,14 @@ appServerSocket.get('/'+randomToken+'/reiniciar', function(req, res) {
 
 
 const server = appServerSocket.listen(portApp,console.log("Servidor en "+portApp));
-const io = require('socket.io')(server);
+const io = new Server(server)
+//const io = require('socket.io')(server);
 
 
 
 
-var fs = require('fs');
-var parse = require('csv-parse');
-var alumnos=[];
-var preguntas=[];
-var ultimaPosicionPreguntas = 0; // la posición de la última pregunta
-var alumnosLogeados = []; // Guarda el socket.id y el nombre
-var marineros=[];
-var tiburones=[];
-var barcos=[];
+
+
 
 function iniciarElementosJuego(){
     // esto Tiene las puntuaciones
@@ -122,9 +137,9 @@ io.on('connection', (socket) => {
     socket.on('login', (msg) => {
         console.log("Login "+socket.id)
 
-        alumnoEncontrado = alumnos.find(e => (e.nombre == msg.nombre && e.password == msg.password));
+        let alumnoEncontrado = alumnos.find(e => (e.nombre == msg.nombre && e.password == msg.password));
         if ( alumnoEncontrado != null ){
-            alumnoLogueado = alumnosLogeados.find(e => (e.nombre == msg.nombre ));
+            let alumnoLogueado = alumnosLogeados.find(e => (e.nombre == msg.nombre ));
             if ( alumnoLogueado == null ) {
                 // No estaba, lo metemos en la lista de logueados
                 alumnoLogueado = {
